@@ -1,5 +1,7 @@
-require 'pp'
 require 'rubygems'
+require "bundler/setup"
+
+require 'pp'
 require 'em-websocket'
 require 'em-http-request'
 require 'json'

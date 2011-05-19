@@ -1,7 +1,9 @@
-require 'erb'
 require 'rubygems'
+require "bundler/setup"
+
+require 'erb'
 require 'sinatra'
-require 'haml'
+#require 'haml'
 
 get '/' do
   erb :index
