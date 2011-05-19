@@ -86,7 +86,7 @@ def handle_tweet(tweet)
 end
 
 EventMachine.run {
-  EventMachine::WebSocket.start(:host => 'localhost', :port => 8088) do |ws|
+  EventMachine::WebSocket.start(:host => 'sns.hiroba.sist.chukyo-u.ac.jp', :port => 8088) do |ws|
     ws.onopen {
       puts 'WebSocket connection open'
       ws.send 'Hello,Client'
