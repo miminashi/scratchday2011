@@ -1,20 +1,122 @@
-<div>
-  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="296" id="utv848750">
-    <param name="flashvars" value="autoplay=false&amp;brand=embed&amp;cid=8121386&amp;locale=ja_JP&amp;v3=1"/>
-    <param name="allowfullscreen" value="true"/>
-    <param name="allowscriptaccess" value="always"/>
-    <param name="movie" value="http://www.ustream.tv/flash/viewer.swf"/>
-    <embed flashvars="autoplay=false&amp;brand=embed&amp;cid=8121386&amp;locale=ja_JP&amp;v3=1" width="480" height="296" allowfullscreen="true" allowscriptaccess="always" id="utv848750" name="utv_n_60122" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash" />
-  </object>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="/js/jquery.js" type="text/javascript"></script>
+    <script src="/js/mmnsdhtml.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="all" /> 
+    <style type="text/css">
+      html {
+        overflow: hidden;
+      }
+      .log {
+        color: red;
+      }
+      div.status {
+        position: absolute;
+        border-style: solid;
+        border-width: 1px;
+        padding-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: rgba(255,255,255,0.9);
+        max-width: 480px;
+      }
+      img.profile_image {
+        width: 48px;
+        height: 48px;
+        float: left;
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+      p.text {
+        margin-bottom: 5px;
+      }
+      div.scratch {
+        position: absolute;
+        /*         z-index: 9999; */
+      }
+      div.ustream {
+        position: absolute;
+        z-index: -1;
+      }
+    </style>
+    <script src="/js/websock.js" type="text/javascript">
+      /*
+         ws = new WebSocket("ws://localhost:8080");
+         ws.onopen = function(e) {
+         var resultAreaObj = document.getElementById('result');
+         resultAreaObj.innerHTML = '<span class="log">onopen</span><br>' + resultAreaObj.innerHTML;
+         };
+         ws.onclose = function(e) {
+         var resultAreaObj = document.getElementById('result');
+         resultAreaObj.innerHTML = '<span class="log">onclose</span><br>' + resultAreaObj.innerHTML;
+         };
+         ws.onmessage = function(e) {
+         var resultAreaObj = document.getElementById('result');
+    //resultAreaObj.innerHTML += '<span class="log">onmessage</span><br>';
+    resultAreaObj.innerHTML = '<span class="status">' + e.data + '</span><br>' + resultAreaObj.innerHTML;
+    //console.log(e.data);
+    };
+    ws.onerror = function(e) {
+    var resultAreaObj = document.getElementById('result');
+    resultAreaObj.innerHTML = '<span class="log">onerror</span><br>' + resultAreaObj.innerHTML;
+    };
+    send = function() {
+    var textFieldObj = document.getElementById('textField');
+    var data = textFieldObj.value;
+    if (data) {
+    ws.send(data);
+    textFieldObj.value = '';
+    }
+    };
+       */
+    </script>
+  </head>
+  <body>
+    <!--
+    <input type='text' id='textField' />
+    <button onclick='send();'>send</button><br>
+    <button onclick='ws.close();'>close</button>
+    <hr>
+    <div id='result'></div>
+    -->
+    <div id="ust_tokyo" class="ustream" style="top:10px; left:500px;>
+      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="296" id="utv321463">
+        <param name="wmode" value="opaque" />
+        <param name="flashvars" value="autoplay=true&amp;brand=embed&amp;cid=8233858&amp;locale=ja_JP&amp;v3=1"/>
+        <param name="allowfullscreen" value="false"/>
+        <param name="allowscriptaccess" value="always"/>
+        <param name="movie" value="http://www.ustream.tv/flash/viewer.swf"/>
+        <embed flashvars="autoplay=true&amp;brand=embed&amp;cid=8233858&amp;locale=ja_JP&amp;v3=1" wmode="opaque" width="480" height="296" allowfullscreen="false" allowscriptaccess="always" id="utv321463" name="utv_n_975340" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash" />
+      </object>
+    </div>
+    <div id="ust_aichi" class="ustream" style="top:350px; left:500px;">
+      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="296" id="utv448418">
+        <param name="wmode" value="opaque" />
+        <param name="flashvars" value="autoplay=true&amp;brand=embed&amp;cid=8121386&amp;locale=ja_JP&amp;v3=1"/>
+        <param name="allowfullscreen" value="false"/>
+        <param name="allowscriptaccess" value="always"/>
+        <param name="movie" value="http://www.ustream.tv/flash/viewer.swf"/>
+        <embed flashvars="autoplay=true&amp;brand=embed&amp;cid=8121386&amp;locale=ja_JP&amp;v3=1" wmode="opaque" width="480" height="296" allowfullscreen="false" allowscriptaccess="always" id="utv448418" name="utv_n_707020" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash" />
+      </object>
+    </div>
+    <div id="twitter"></div>
+    <div id="scratch">
+      <applet id='ProjectApplet' style='display:block' code='ScratchApplet' codebase='http://scratch.mit.edu/static/misc' archive='ScratchApplet.jar' height='387' width='482'>
+      <param name='project' value='../../static/projects/mrmayu/1760158.sb'>
+      </applet>
+      <!--
+      <object type="application/x-shockwave-flash" data="http://http://scratch.mit.edu/static/misc/PlayerOnly.swf" width="482" height="387" id="PlayerOnly" style="visibility: visible; position: relative; z-index: 1000; ">
+        <param name="allowScriptAccess" value="always">
+        <param name="allowFullScreen" value="true">
+        <param name="flashvars" value="project=http://scratch.mit.edu/static/projects/mrmayu/1760158.sb?version=4">
+      </object>
+      -->
+    </div>
+    <!--
+    <iframe src="/scratch" width="482" height="387" style="z-index:9999"></iframe>
+    -->
+  </body>
+</html>
 
-<applet id='ProjectApplet' style='display:block' code='ScratchApplet' codebase='http://scratch.mit.edu/static/misc' archive='ScratchApplet.jar' height='387' width='482'>
-<param name='project' value='../../static/projects/nxt123/1762424.sb'>
-</applet>
-
-<applet id='ProjectApplet' style='display:block' code='ScratchApplet' codebase='http://scratch.mit.edu/static/misc' archive='ScratchApplet.jar' height='387' width='482'>
-<param name='project' value='../../static/projects/DarkFusion/1721779.sb'>
-</applet>
-
-
-
-</div>

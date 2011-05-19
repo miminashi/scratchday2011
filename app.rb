@@ -4,10 +4,14 @@ require 'sinatra'
 require 'haml'
 
 get '/' do
-  haml :index
+  erb :index
 end
 
 get '/websock' do
   erb :websock
+end
+
+get '/scratch' do
+  erb :scratch
 end
 
