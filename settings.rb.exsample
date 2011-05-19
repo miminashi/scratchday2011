@@ -1,0 +1,15 @@
+# tracking hashtags
+#HASHTAGS = ['apple', 'scratchday', 'alliwantis']
+#HASHTAGS = ['apple', 'scratchday']
+HASHTAGS = ['scratchday']
+
+# twitter streaming auth
+USERNAME = 'yourusername'
+PASSWORD = 'yourpassword'
+
+# bit.ly
+BITLY_USERNAME = 'yourbitlylogin'
+BITLY_APIKEY = 'yourbitlyapikey'
+
+# t.co
+
