@@ -1,7 +1,8 @@
+
 # tracking hashtags
 #HASHTAGS = ['apple', 'scratchday', 'alliwantis']
 #HASHTAGS = ['apple', 'scratchday']
-HASHTAGS = ['scratchday']
+HASHTAGS = ['scratchday', 'hoge']
 
 # twitter streaming auth
 USERNAME = 'yourusername'

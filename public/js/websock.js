@@ -3,7 +3,8 @@
   console.log('width = ' + display.width());
   console.log('height = ' + display.height());
 
-  ws = new WebSocket("ws://sns.hiroba.sist.chukyo-u.ac.jp:8088");
+  //ws = new WebSocket("ws://sns.hiroba.sist.chukyo-u.ac.jp:8088");
+  ws = new WebSocket(host + ':' + port);
   ws.onopen = function(e) {
     console.log('onopen');
     //var resultAreaObj = document.getElementById('result');
