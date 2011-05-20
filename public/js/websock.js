@@ -27,7 +27,7 @@
       innerHTML += '</div>';
       $('#twitter').append(innerHTML);
       $('#' + id).css('left', Math.floor(Math.random() * (display.width() - $('#' + id).width())));
-      $('#' + id).animate({top: display.height()}, 8000, 'linear', function() {
+      $('#' + id).animate({top: display.height()}, 16000, 'linear', function() {
         $('#' + id).remove();
       });
     };
