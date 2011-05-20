@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript">
-      var host = <%= @websock_domain %>;
+      var host = <%= "'" + @websock_domain + "'" %>;
       var port = <%= @websock_port %>;
     </script>
     <script src="/js/jquery.js" type="text/javascript"></script>
@@ -12,6 +12,11 @@
     <style type="text/css">
       html {
         overflow: hidden;
+      }
+      body {
+        background-image: url('/images/ScratchDayLogo-Large.png');
+        /*         background-position: center; */
+        background-repeat: no-repeat;
       }
       .log {
         color: red;
@@ -36,9 +41,11 @@
       p.text {
         margin-bottom: 5px;
       }
-      div.scratch {
+      div#scratch {
         position: absolute;
         /*         z-index: 9999; */
+        left: <%= @settings['scratch']['x'] %>px;
+        top: <%= @settings['scratch']['y'] %>px;
       }
       div.ustream {
         position: absolute;
@@ -78,33 +85,11 @@
     </script>
   </head>
   <body>
-    <!--
-    <input type='text' id='textField' />
-    <button onclick='send();'>send</button><br>
-    <button onclick='ws.close();'>close</button>
-    <hr>
-    <div id='result'></div>
-    -->
-    <div id="ust_tokyo" class="ustream" style="top:10px; left:500px;>
-      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="296" id="utv321463">
-        <param name="wmode" value="opaque" />
-        <param name="flashvars" value="autoplay=true&amp;brand=embed&amp;cid=8233858&amp;locale=ja_JP&amp;v3=1"/>
-        <param name="allowfullscreen" value="false"/>
-        <param name="allowscriptaccess" value="always"/>
-        <param name="movie" value="http://www.ustream.tv/flash/viewer.swf"/>
-        <embed flashvars="autoplay=true&amp;brand=embed&amp;cid=8233858&amp;locale=ja_JP&amp;v3=1" wmode="opaque" width="480" height="296" allowfullscreen="false" allowscriptaccess="always" id="utv321463" name="utv_n_975340" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash" />
-      </object>
-    </div>
-    <div id="ust_aichi" class="ustream" style="top:350px; left:500px;">
-      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="296" id="utv448418">
-        <param name="wmode" value="opaque" />
-        <param name="flashvars" value="autoplay=true&amp;brand=embed&amp;cid=8121386&amp;locale=ja_JP&amp;v3=1"/>
-        <param name="allowfullscreen" value="false"/>
-        <param name="allowscriptaccess" value="always"/>
-        <param name="movie" value="http://www.ustream.tv/flash/viewer.swf"/>
-        <embed flashvars="autoplay=true&amp;brand=embed&amp;cid=8121386&amp;locale=ja_JP&amp;v3=1" wmode="opaque" width="480" height="296" allowfullscreen="false" allowscriptaccess="always" id="utv448418" name="utv_n_707020" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash" />
-      </object>
-    </div>
+    <% ['ustream_tokyo', 'ustream_toyota'].each do |place| %>
+      <div id="<%= place %>" class="ustream" style="top:<%= @settings[place]['y'] %>px; left:<%= @settings[place]['x'] %>px;"> 
+        <%= @embeds[place] %>
+      </div>
+    <% end %>
     <div id="twitter"></div>
     <div id="scratch">
       <applet id='ProjectApplet' style='display:block' code='ScratchApplet' codebase='http://scratch.mit.edu/static/misc' archive='ScratchApplet.jar' height='387' width='482'>

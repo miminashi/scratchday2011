@@ -1,0 +1,54 @@
+<h1>カスタマイズ</h1>
+<p>会場のプロジェクタのサイズに合わせて設定を行ってください</p>
+<form action="/settings" method="POST">
+  <div id="scratch">
+    <h2>Scratchの表示設定</h2>
+    <ul>
+      <li>
+      <label>幅(width):</label>
+      <input type="number" name="scratch[width]" value="<%= @settings['scratch']['width'] %>">
+      </li>
+      <li>
+      <label>位置(position):</label>
+      <ul>
+        <li>
+        <label>X:</label>
+        <input type="number" name="scratch[x]" value="<%= @settings['scratch']['x'] %>">
+        </li>
+        <li>
+        <label>Y:</label>
+        <input type="number" name="scratch[y]" value="<%= @settings['scratch']['y'] %>">
+        </li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+  <div id="ustreams">
+    <h2>UStreamの表示設定</h2>
+    <% [{:name => '東京', :id => 'ustream_tokyo'}, {:name => '豊田', :id => 'ustream_toyota'}].each do |place| %>
+      <div class="ustream" id="<%= place[:id] %>">
+        <h3><%= place[:name] %></h3>
+        <ul>
+          <li>
+          <label>幅(width):</label>
+          <input type="number" name="<%= place[:id] %>[width]" value="<%= @settings[place[:id]]['width'] %>">
+          </li>
+          <li>
+          <label>位置(position):</label>
+          <ul>
+            <li>
+            <label>X:</label>
+            <input type="number" name="<%= place[:id] %>[x]" value="<%= @settings[place[:id]]['x'] %>">
+            </li>
+            <li>
+            <label>Y:</label>
+            <input type="number" name="<%= place[:id] %>[y]" value="<%= @settings[place[:id]]['y'] %>">
+            </li>
+          </ul>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <input type="submit" value="設定(submit)">
+</form>
