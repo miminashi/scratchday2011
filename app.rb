@@ -80,6 +80,7 @@ get '/' do
   p @embeds
   @websock_port = WEBSOCK_PORT
   @websock_domain = WEBSOCK_DOMAIN
+  @falltime = FALLTIME
   erb :index, :layout => false
 end
 
